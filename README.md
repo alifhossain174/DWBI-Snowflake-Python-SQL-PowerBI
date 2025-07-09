@@ -1,5 +1,16 @@
 # Data Warehouse and Business Intelligence Project
 
+This project provides a comprehensive framework for building and populating a data warehouse environment, supporting business intelligence and analytics use cases. It includes database schema scripts, synthetic data generators, and supporting documentation to simulate a retail scenario with multiple stores, products, and customers.
+
+The solution is organized into modular components:
+- **Database scripts** for creating and managing the data warehouse schema.
+- **Python scripts** for generating realistic dimension and fact data, leveraging both randomization and lookup tables.
+- **Lookup and reference data** to ensure consistency and realism in generated datasets.
+- **Landing and staging directories** for managing generated and processed data files.
+- **Documentation and diagrams** to support understanding and further development.
+
+This project is ideal for learning, prototyping, or demonstrating data warehousing concepts, ETL processes, and business intelligence workflows in a controlled, reproducible environment.
+
 ## Project Structure
 
 ```
