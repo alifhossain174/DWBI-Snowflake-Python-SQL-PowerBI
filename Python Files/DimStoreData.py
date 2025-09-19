@@ -57,15 +57,15 @@ with open(csv_file,mode='w',newline='') as file:
 
 #Generate a Single row 
         row = [
-        store_name,
-        random.choice(['Exclusive','MBO','SMB','Outlet Stores']),
-        fake.date(),
-        fake.address().replace("\n"," ").replace(","," "),
-        fake.city(),
-        fake.state(),
-        fake.country(),
-        random.choice(['North','South','East','West']),
-        fake.first_name()
+            store_name,
+            random.choice(['Exclusive','MBO','SMB','Outlet Stores']),
+            fake.date(),
+            fake.address().replace("\n"," ").replace(","," "),
+            fake.city(),
+            fake.state(),
+            fake.country(),
+            random.choice(['North','South','East','West']),
+            fake.first_name()
         ]
 
 

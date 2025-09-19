@@ -1,3 +1,6 @@
+-- create database test_db;
+-- create schema test_db_Schema;
+
 -- Dimension Table: DimDate
 CREATE TABLE DimDate (
     DateID INT PRIMARY KEY,
@@ -73,3 +76,29 @@ CREATE TABLE FactOrders (
     FOREIGN KEY (ProductID) REFERENCES DimProduct(ProductID),
     FOREIGN KEY (StoreID) REFERENCES DimStore(StoreID)
 );
+
+
+-- file format for csv files
+-- CREATE OR REPLACE FILE FORMAT CSV_SOURCE_FILE_FORMAT
+-- TYPE='CSV'
+-- SKIP_HEADER = 1
+-- FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+-- DATE_FORMAT = 'YYYY-MM-DD'
+
+-- stage for csv files
+-- CREATE or replace STAGE TESTSTAGE
+
+-- file upload commands
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/One Time Load/DimLoyalty/DimLoyaltyInfo.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimLoyaltyInfo/Auto_Compress=FALSE;
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/One Time Load/DimCustomer/DimCustomerData.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimCustomerData/Auto_Compress=FALSE;
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/One Time Load/DimProduct/DimProductData.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimProductData/Auto_Compress=FALSE;
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/One Time Load/DimDate/DimDate.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimDate/Auto_Compress=FALSE;
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/One Time Load/DimStore/DimStoreData.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimStoreData/Auto_Compress=FALSE;
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/Python Files/factorders.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/factorders/Auto_Compress=FALSE;  
+-- PUT 'file://D:/DWBI-Snowflake-Python-SQL-PowerBI/Landing Directory/*.csv' @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/LandingDirectory/Auto_Compress=FALSE; 
+
+
+-- copy files into databse
+COPY INTO DimLoyaltyProgram
+FROM @TEST_DB.TEST_DB_SCHEMA.TESTSTAGE/DimLoyaltyInfo/DimLoyaltyInfo.csv
+FILE_FORMAT = (FORMAT_NAME = 'CSV_SOURCE_FILE_FORMAT')

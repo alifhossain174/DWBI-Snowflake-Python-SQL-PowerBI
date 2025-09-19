@@ -19,7 +19,7 @@ excel_file_path_name = "C:/Users/anshu/Desktop/Personal/End to End Project/Looku
 
 #####
 excel_sheet_name_product = "Raw Product Names"
-product_column_name  = "Product Name"
+product_column_name  = "Product Name" 
 excel_sheet_name_category = "Product Categories"
 category_column_name = "Category Name"
 
